@@ -12,19 +12,19 @@ It is a typical Rails 4.1 app with ruby 2.1.2. It depends on redis and on sideki
 2. bundle
 3. change database.yml
 4. check the db/seeds and change the user as you wish. I have my feeds that I am following, so be sure to add yours (or suggest me some more to follow!)
-5. run `rake db:dev:init` (check the custom rake command at lib/tasks/db.rake). This command will also add my feeds, remove the 03_feeds.rb if you don't want them
-6. run `sidekiq` and add it as a daemon if you want it to always run
+5. run ``rake db:dev:init`` (check the custom rake command at lib/tasks/db.rake). This command will also add my feeds, remove the 03_feeds.rb if you don't want them
+6. run ``sidekiq`` and add it as a daemon if you want it to always run
 
 === Further information
 It fetches the feeds every 15 minutes. If you want to change it go to workers/article_fetcher.rb. If you have questions, check sidetiq
 I have the following functionality which I really wanted and I haven't found it in any other rss reader:
-**seen**: When I hover on an article, I want it to be marked as read and as seen.
-**clicked**: When I click on an article I want it to be marked as click.
-**starred**: The classic starred article which many rss readers have.
+- *seen*: When I hover on an article, I want it to be marked as read and as seen.
+- *clicked*: When I click on an article I want it to be marked as click.
+- *starred*: The classic starred article which many rss readers have.
 
 The reason of the above (seen and clicked tracking) is that I have gathered many feeds and I didn't know which one really interested me and which ones I usually skip. I was seeing and choosing what to see by instinct. So with the above additions, I can track which ones I usually see but I don't click, which one I usually click and which one I usually skip by clicking "Mark it all as read". I will create also a page with basic statistics for them.
 
-I also have a **worked** fields on the feeds which I use for tracking when a feed is changed. With this, I won't have unecessary feeds which they won't work.
+I also have a *worked* fields on the feeds which I use for tracking when a feed is changed. With this, I won't have unecessary feeds which they won't work.
 
 === TODO
 - Add comments and tags on each article if you want.
