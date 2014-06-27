@@ -1,4 +1,4 @@
-== Freeze
+# Freeze
 
 Freeze is my app for keeping bookmarked what I've seen on the internet. It is like the old google reader or tinytinyRSS. I just have added some features that I need and I am going to extend it.
 
@@ -8,7 +8,7 @@ Browser bookmarking isn't enough because I am using many devices. I also want a 
 
 I also want to fetch facebook, twitter, stackoverflow, github, youtube updates and have all the information in one place.
 
-=== Usage
+## Usage
 It is a typical Rails 4.1 app with ruby 2.1.2. It depends on redis and sidekiq for fetching the feeds as a background job. I have used sidetiq to schedule the feed fetching every 15 minutes. Follow the steps to grab the app:
 1. `git clone git@github.com:johndel/freeze.git`
 2. bundle
@@ -17,7 +17,7 @@ It is a typical Rails 4.1 app with ruby 2.1.2. It depends on redis and sidekiq f
 5. run `rake db:dev:init` (check the custom rake command at lib/tasks/db.rake). This command will also add my feeds, remove the 03_feeds.rb if you don't want them
 6. run `sidekiq` and add it as a daemon if you want it to always run
 
-=== Further information
+## Further information
 It fetches the feeds every 15 minutes. If you want to change it go to `workers/article_fetcher.rb`. If you have questions, check sidetiq
 I have the following functionality which I really wanted and I haven't found it in any other rss reader:
 - **seen**: When I hover on an article, I want it to be marked as read and as seen.
@@ -28,7 +28,7 @@ The reason of the above (seen and clicked tracking) is that I have gathered many
 
 I also have a *worked* fields on the feeds which I use for tracking when a feed is dead. With this, I won't have unecessary feeds which won't work.
 
-=== TODO
+## TODO
 - Add the functionality for adding comments and tags on each article.
 - Add the above fetchers so I will have all the information I want in one place. I also plan to add custom articles when I want to.
 - Add search (preferably elasticsearch) for making really easy to find the information I want.
