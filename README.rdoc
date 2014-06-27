@@ -8,7 +8,7 @@ I want to put also facebook, twitter, stackoverflow, github, youtube fetchers an
 
 === Usage
 It is a typical Rails 4.1 app with ruby 2.1.2. It depends on redis and on sidekiq for fetching the feeds on the background. I have used sidetiq for the scheduling of the job to be done every 15 minutes. Here the common steps that you may use them in most rails apps:
-1. git pull it
+1. git clone it
 2. bundle
 3. change database.yml
 4. check the db/seeds and change the users to yours. I have my feeds that I am following, so be sure to add yours (or suggest me some more to follow!)
