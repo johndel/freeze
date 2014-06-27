@@ -11,7 +11,7 @@ It is a typical Rails 4.1 app with ruby 2.1.2. It depends on redis and on sideki
 1. git clone it
 2. bundle
 3. change database.yml
-4. check the db/seeds and change the users to yours. I have my feeds that I am following, so be sure to add yours (or suggest me some more to follow!)
+4. check the db/seeds and change the user as you wish. I have my feeds that I am following, so be sure to add yours (or suggest me some more to follow!)
 5. run `rake db:dev:init` (check the custom rake command at lib/tasks/db.rake). This command will also add my feeds, remove the 03_feeds.rb if you don't want them
 6. Run `sidekiq` and add it as a daemon if you want it to always run
 
