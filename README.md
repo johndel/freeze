@@ -10,12 +10,12 @@ I also want to fetch facebook, twitter, stackoverflow, github, youtube updates a
 
 ## Usage
 It is a typical Rails 4.1 app with ruby 2.1.2. It depends on redis and sidekiq for fetching the feeds as a background job. I have used sidetiq to schedule the feed fetching every 15 minutes. Follow the steps to grab the app:
-1. `git clone git@github.com:johndel/freeze.git`
-2. bundle
-3. change database.yml
-4. check the db/seeds and change the user as you wish. I have my feeds that I follow, so make sure to add yours (or suggest me some more to follow!)
-5. run `rake db:dev:init` (check the custom rake command at lib/tasks/db.rake). This command will also add my feeds, remove the 03_feeds.rb if you don't want them
-6. run `sidekiq` and add it as a daemon if you want it to always run
+- 1. `git clone git@github.com:johndel/freeze.git`
+- 2. bundle
+- 3. change database.yml
+- 4. check the db/seeds and change the user as you wish. I have my feeds that I follow, so make sure to add yours (or suggest me some more to follow!)
+- 5. run `rake db:dev:init` (check the custom rake command at lib/tasks/db.rake). This command will also add my feeds, remove the 03_feeds.rb if you don't want them
+- 6. run `sidekiq` and add it as a daemon if you want it to always run
 
 ## Further information
 It fetches the feeds every 15 minutes. If you want to change it go to `workers/article_fetcher.rb`. If you have questions, check sidetiq
