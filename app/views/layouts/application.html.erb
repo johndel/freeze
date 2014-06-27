@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Freeze</title>
+  <%= render partial: "layouts/cdn" %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <%= render partial: "layouts/navigation" %>
+  <div class="flash" >
+    <%= render partial: "layouts/flash_messages" %>
+  </div>
+
+  <div class="container-fluid">
+    <%= yield %>
+  </div>
+
+</body>
+</html>

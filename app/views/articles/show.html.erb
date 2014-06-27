@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Starred:</strong>
+  <%= @article.starred %>
+</p>
+
+<p>
+  <strong>Feed:</strong>
+  <%= @article.feed_id %>
+</p>
+
+<p>
+  <strong>Clicked:</strong>
+  <%= @article.clicked %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @article.title %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @article.content.html_safe %>
+</p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @article.author %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @article.url %>
+</p>
+
+<p>
+  <strong>Source:</strong>
+  <%= @article.source %>
+</p>
+
+<p>
+  <strong>Article published:</strong>
+  <%= @article.article_published %>
+</p>
+
+<p>
+  <strong>Article updated:</strong>
+  <%= @article.article_updated %>
+</p>
+
+<p>
+  <strong>Read at:</strong>
+  <%= @article.read_at %>
+</p>
+
+<%= link_to 'Edit', edit_article_path(@article) %> |
+<%= link_to 'Back', articles_path %>

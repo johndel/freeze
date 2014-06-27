@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @feed.category_id %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @feed.title %>
+</p>
+
+<p>
+  <strong>Feed type:</strong>
+  <%= @feed.feed_type %>
+</p>
+
+<p>
+  <strong>Htmlurl:</strong>
+  <%= @feed.htmlurl %>
+</p>
+
+<p>
+  <strong>Xmlurl:</strong>
+  <%= @feed.xmlurl %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @feed.comment %>
+</p>
+
+<%= link_to 'Edit', edit_feed_path(@feed) %> |
+<%= link_to 'Back', feeds_path %>

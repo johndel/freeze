@@ -1,0 +1,61 @@
+<%= form_for(@article) do |f| %>
+  <% if @article.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h2>
+
+      <ul>
+      <% @article.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :starred %><br>
+    <%= f.check_box :starred %>
+  </div>
+  <div class="field">
+    <%= f.label :feed_id %><br>
+    <%= f.number_field :feed_id %>
+  </div>
+  <div class="field">
+    <%= f.label :clicked %><br>
+    <%= f.check_box :clicked %>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :content %><br>
+    <%= f.text_area :content %>
+  </div>
+  <div class="field">
+    <%= f.label :author %><br>
+    <%= f.text_field :author %>
+  </div>
+  <div class="field">
+    <%= f.label :url %><br>
+    <%= f.text_field :url %>
+  </div>
+  <div class="field">
+    <%= f.label :source %><br>
+    <%= f.text_field :source %>
+  </div>
+  <div class="field">
+    <%= f.label :article_published %><br>
+    <%= f.datetime_select :article_published %>
+  </div>
+  <div class="field">
+    <%= f.label :article_updated %><br>
+    <%= f.datetime_select :article_updated %>
+  </div>
+  <div class="field">
+    <%= f.label :read_at %><br>
+    <%= f.datetime_select :read_at %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

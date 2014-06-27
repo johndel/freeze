@@ -1,0 +1,5 @@
+<% if article.starred %>
+  <%= link_to "<i class='glyphicon glyphicon-star'></i>".html_safe, star_article_path(article), remote: true %>
+<% else %>
+  <%= link_to "<i class='glyphicon glyphicon-star-empty'></i>".html_safe, star_article_path(article), remote: true %>
+<% end %>

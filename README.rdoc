@@ -1,0 +1,48 @@
+== Freeze
+
+Freeze is my app for keeping bookmarked what I've seen on the internet. It is like the old google reader or tinytinyRSS. I just have added some features that I need and I am going to extend it.
+
+I feel it is really important to keep stored what you read on the internet. I have felt so many times that I have read something somewhere and I can't find it. With this app, I can add tags and comments in an article, add it to a category or star it. I can see which articles I have seen, which ones I have clicked (and ordered by date) etc.
+
+I want to put also facebook, twitter, stackoverflow, github, youtube fetchers and have all the internet information that I use, in one place.
+
+=== Usage
+It is a typical Rails 4.1 app with ruby 2.1.2. It depends on redis and on sidekiq for fetching the feeds on the background. I have used sidetiq for the scheduling of the job to be done every 15 minutes. Here the common steps that you may use them in most rails apps:
+1. git pull it
+2. bundle
+3. change database.yml
+4. check the db/seeds and change the users to yours. I have my feeds that I am following, so be sure to add yours (or suggest me some more to follow!)
+5. run `rake db:dev:init` (check the custom rake command at lib/tasks/db.rake). This command will also add my feeds, remove the 03_feeds.rb if you don't want them
+6. Run `sidekiq` and add it as a daemon if you want it to always run
+
+=== Some more information
+It fetches the feeds every 15 minutes. If you want to change it go to workers/article_fetcher.rb. If you have questions, check sidetiq
+I have the following functionality which I really wanted and I haven't found it in any other rss reader:
+**seen**: When I hover on an article, I want it to be marked as read and as seen.
+**clicked**: When I click on an article I want it to be marked as click.
+**starred**: The classic starred article which many rss readers have.
+
+The reason of the above (seen and clicked tracking) is that I have gathered many feeds and I didn't know which one really interested me and which ones I usually skip. I was seeing and choosing what to see by instinct. So with the above additions, I can track which ones I usually see but I don't click, which one I usually click and which one I usually skip by clicking "Mark it all as read". I will create also a page with basic statistics for them.
+
+I also have a **worked** fields on the feeds which I use for tracking when a feed is changed. With this, I won't have unecessary feeds which they won't work.
+
+=== TODO
+- Add comments and tags on each article if you want.
+- Add the above fetchers so I will have all the information I want in one place. I also plan to add custom articles when I want to.
+- Add search (preferably elasticsearch) for making really easy to find the information I want.
+- Export functionality.
+- Check valid feeds as a background job every week.
+- Add realtime article showing. I may do it by adding in the frontend an ember app and some node.js.
+- Add RDS database for not losing anything, ever.
+- Use it and improve the UI to fit my needs. There are a lot of nice UI/UX things that google reader have done correctly. TinyTiny has also some nice things (showing the count of the unread articles on the title), so I am going to add them as well but I won't write them because they are many.
+
+Tell me a feature that you want and I may add it! Just have in mind that this app is maybe the most used app by me, so I am really opinionated about how I wanted to be. I hope you like it, if not just change it to your needs (and tell me the feature because I may haven't thought about it)!
+
+=== Code
+Ok the code I have wrote isn't a masterpiece, I know, I just wanted to do it quickly. I may improve it as I have messed up the javascript a bit, but it works as I expect, it is a pretty small app and I believe that it won't go much bigger. If you have any improvements, I will gladly add them.
+
+
+
+
+
+

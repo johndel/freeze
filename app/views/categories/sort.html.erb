@@ -1,0 +1,10 @@
+<h1>Sort Categories</h1>
+
+<ul id="sort_categories" class="list-group sort_list" data-update-url="<%= sort_update_categories_path %>">
+<% @categories.each do |category| %>
+  <%= content_tag_for :li, category, class: "list-group-item handle" do %>
+    <span class="glyphicon glyphicon-move"></span>
+    <%= category.name %>
+  <% end %>
+<% end %>
+</ul>

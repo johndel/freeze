@@ -1,0 +1,36 @@
+<h1>Listing feeds  - <%= @feeds.count %></h1>
+<%= link_to 'New Feed', new_feed_path, class: "btn btn-primary" %>
+<%= link_to 'Check Valid Feeds', working_feeds_path, class: "btn btn-primary" %>
+<%= paginate @feeds %>
+
+<table class="table table-bordered table-striped table-condensed">
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Title</th>
+      <th>Xmlurl</th>
+      <th>Article Count</th>
+      <th>Works</th>
+      <th colspan="4">Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @feeds.each do |feed| %>
+      <tr>
+        <td  style="white-space:nowrap;"><%= feed.category.name %></td>
+        <td><%= link_to feed.title, feed.htmlurl %></td>
+        <td><%= link_to feed.xmlurl, feed.xmlurl %></td>
+        <td><%= feed.article_count %></td>
+        <td><%= feed.works %></td>
+        <td><%= link_to 'Show', feed, class: "btn btn-primary" %></td>
+        <td><%= link_to 'Edit', edit_feed_path(feed), class: "btn btn-primary" %></td>
+        <td><%= link_to 'Check and fetch', feed_working_feed_path(feed), class: "btn btn-primary" %></td>
+        <td><%= link_to 'Destroy', feed, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @feeds %>
+

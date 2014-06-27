@@ -1,0 +1,1 @@
+$(".article_star[data-articleid=<%= @article.id %>]").html("<%= escape_javascript(render(partial: 'articles/star', locals: {article: @article})) %>");

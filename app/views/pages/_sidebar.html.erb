@@ -1,0 +1,29 @@
+<ul class="list-group">
+  <% if @categories.present? %>
+    <a href="javascript:void(0)" class="show_all_articles">Show all articles - <span class="badge"><%= @unread_articles %></span></a>
+    <% @categories.each do |category| %>
+      <% if category.unread_articles? %>
+        <li class="list-group-item" data-categoryid="<%= category.id %>">
+        <h3 class="category_link"><span class="badge"><%= category.unread_articles_count %></span> <%= link_to category.name, "javascript:void(0)", data: {categoryid: category.id} %> - <%= link_to "Mark Category as read", read_all_category_path(category), remote: true %></h3>
+          <div class="category_feeds">
+            <ul class="feed_list list-group">
+              <% category.feeds.each do |feed| %>
+                <% if feed.unread_articles? %>
+                  <li class="list-group-item">
+                    <%= link_to "javascript:void(0)", alt: feed.title, title: feed.title, data: {categoryid: category.id, feedid: feed.id}, class: "unread_feed" do %>
+                      <%= image_tag "#{feed.base_url}/favicon.ico", height: "16px", width: "16px" %> <%= truncate(feed.title, length: 60) %>
+                      <span class="badge"><%= feed.unread_articles_count %></span>
+                    <% end %>
+                    <div class="feed_revealer"><%= link_to "Mark as read" %></div>
+                  </li>
+                <% end %>
+            <% end %>
+            </ul>
+          </div>
+        </li>
+      <% end %>
+    <% end %>
+  <% else %>
+    <strong>All articles have been read.</strong>
+  <% end %>
+</ul>
