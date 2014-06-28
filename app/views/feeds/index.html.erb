@@ -19,7 +19,7 @@
     <% @feeds.each do |feed| %>
       <tr>
         <td  style="white-space:nowrap;"><%= feed.category.name %></td>
-        <td><%= link_to feed.title, feed.htmlurl %></td>
+        <td><%= link_to feed.title, feed.base_url %></td>
         <td><%= link_to feed.xmlurl, feed.xmlurl %></td>
         <td><%= feed.article_count %></td>
         <td><%= feed.works %></td>

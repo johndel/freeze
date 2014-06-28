@@ -1,0 +1,17 @@
+<div class="article <%= article.read_at ? 'read' : 'unread' %>" data-feedid="<%= article.feed.id %>" data-categoryid="<%= article.feed.category.id %>" data-articleid="<%= article.id %>">
+  <hr class="main_hr">
+  <div class="article_feed">
+    <span class="article_star" data-articleid="<%= article.id %>">
+      <%= render partial: "articles/star", locals: {article: article} %>
+    </span>
+    <strong><%= article.feed.category.name %>:</strong> <%= link_to article.feed.title, article.feed.base_url, target: "_blank" %>
+    <a href="javascript:void(0)" class="remove_article" data-categoryid="<%= article.feed.category.id %>" data-feedid="<%= article.feed.id %>" data-articleid="<%= article.id %>">Remove</a>
+  </div>
+  <hr class="main_hr">
+
+  <h4 class="article_title">
+    <%= link_to article.title, article.url, data: {articleid: article.id}, class: "article_title_link", target: "_blank" %>
+  </h4>
+  <div class="article_info"><%= article.author %> - <%= article.article_published %></div>
+  <div class="article_content"><div class="main_pre"><%= article.content.try(:strip).try(:html_safe) %></div></div>
+</div>

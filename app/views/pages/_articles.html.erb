@@ -3,24 +3,7 @@
     <% @categories.each do |category| %>
       <% category.feeds.each do |feed| %>
         <% feed.articles.select{ |a| a.read_at == nil }.each do |article| %>
-          <div class="article unread" data-feedid="<%= feed.id %>" data-categoryid="<%= category.id %>" data-articleid="<%= article.id %>">
-            <hr class="main_hr">
-            <div class="article_feed">
-              <span class="article_star" data-articleid="<%= article.id %>">
-                <%= render partial: "articles/star", locals: {article: article} %>
-              </span>
-
-              <strong><%= category.name %>:</strong> <%= link_to feed.title, feed.base_url, target: "_blank" %>
-              <a href="javascript:void(0)" class="remove_article" data-categoryid="<%= article.feed.category.id %>" data-feedid="<%= article.feed.id %>" data-articleid="<%= article.id %>">Remove</a>
-            </div>
-            <hr class="main_hr">
-
-            <h4 class="article_title">
-              <%= link_to article.title, article.url, data: {articleid: article.id}, class: "article_title_link", target: "_blank" %>
-            </h4>
-            <div class="article_info"><%= article.author %> - <%= article.article_published %></div>
-            <div class="article_content"><div class="main_pre"><%= article.content.try(:strip).try(:html_safe) %></div></div>
-          </div>
+          <%= render partial: "shared/article", locals: { article: article } %>
         <% end %>
       <% end %>
     <% end %>

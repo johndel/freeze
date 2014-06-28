@@ -1,4 +1,4 @@
-<div class="col-sm-4 sidebar">
+<div class="col-sm-3 sidebar">
   <h2>Sidebar Feeds</h2>
   <%= link_to "Read all articles", readall_path, class: "btn btn-primary", remote: true %>
   <%= link_to 'Fetch Articles', fetch_articles_feeds_path, class: "btn btn-primary" %>
@@ -9,7 +9,7 @@
   </div>
 </div>
 
-<div class="col-sm-8 main">
+<div class="col-sm-9 main">
   <h2>Articles</h2>
   <div class="tree_articles">
     <%= render partial: "pages/articles" %>

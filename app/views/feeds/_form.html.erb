@@ -13,7 +13,7 @@
 
   <div class="field form-group">
     <%= f.label :category_id %><br>
-    <%= f.number_field :category_id, class: "form-control" %>
+    <%= f.select :category_id, Category.all.collect { |cat| [ cat.name, cat.id ] }, {}, class: "form-control" %>
   </div>
   <div class="field form-group">
     <%= f.label :title %><br>

@@ -48,9 +48,15 @@ $ ->
   $(".unread_feed").on "dblclick", ->
     feed = $(this)
     feedid = $(this).data("feedid")
+    feed_badge = $(".feed_list a[data-feedid=" + feedid + "] .badge")
+    $(".show_all_articles .badge").text(parseInt($(".show_all_articles .badge").text()) - parseInt(feed_badge.text()))
     $.ajax(
       type: "PUT"
       url: "/feeds/" + feedid + "/read_all"
     ).done ->
-      feed.parent().fadeOut()
-      $(".article[data-feedid=" + feedid + "]").fadeOut()
+      if(feed.parent().parent().children().size() == 1)
+        feed.parent().parent().remove()
+      else
+        feed.parent().remove()
+      $(".article[data-feedid=" + feedid + "]").remove()
+      # if()
